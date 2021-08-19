@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.5.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
 group = 'org.danny'
@@ -28,8 +29,16 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
+    implementation group: 'com.querydsl', name: 'querydsl-jpa', version: '4.4.0'
 }
 
 test {
     useJUnitPlatform()
+}
+
+def querydslDir = "$buildDir/gernerated/querydsl"
+
+querydsl {
+    jpa = true
+    qu
 }
