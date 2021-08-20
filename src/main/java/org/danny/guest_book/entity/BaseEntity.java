@@ -8,13 +8,12 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
 @MappedSuperclass
 @EntityListeners(value = {AuditingEntityListener.class})
-public abstract class BaseEntity {
+abstract class BaseEntity {
 
     @Column(updatable = false)
     @CreatedDate
@@ -22,5 +21,5 @@ public abstract class BaseEntity {
 
     @Column
     @LastModifiedDate
-    private LocalDate modDate;
+    private LocalDateTime modDate;
 }
